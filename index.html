@@ -14,31 +14,33 @@
     <header>
         <h1>Custom Challenge Quiz</h1>
     </header>
-    <section id="beginningScreen">
-        <h2>Custom Challenge Quiz</h2>
-        <button>Let Us Begin</button>
-    </section>
-    <section id="challengeScreen"></section>
-    <h2>What is the square root of 64?</h2>
-    <ul>
-        <button>a. 32 </button>
-        <button>b. 16</button>
-        <button>c. 64</button>
-        <button>d. 8</button>
-    </ul>
-    <section id="endOfGameScreen">
-        <h2>Finally Finished!</h2>
-        <p>Your Score is: <span id="score">100</span></p>
-        <input id="initials" placeholder="Enter Initials" />
-        <button>Send it Off!</button>
-    </section>
-    <section id="highScoreScreen"></section>
-    <h2>High Scores</h2>
-    <ul>
+    <main id="challengeContainer">
+        <section id="beginningScreen">
+            <h2>Custom Challenge Quiz</h2>
+            <button id=startButton>Let Us Begin</button>
+        </section>
+        <section id="challengeScreen"></section>
+        <h2>What is the square root of 64?</h2>
+        <ul id="buttonUl">
+            <button>a. 32 </button>
+            <button>b. 16</button>
+            <button>c. 64</button>
+            <button>d. 8</button>
+        </ul>
+        <section2 id="endOfGameScreen">
+            <h2>Finally Finished!</h2>
+            <p>Your Score is: <span id="score">100</span></p>
+            <input id="initials" placeholder="Enter Initials" />
+            <button>Send it Off!</button>
+        </section>
+        <section id="highScoreScreen"></section>
+        <h2>High Scores</h2>
+        <ul>
 
-    </ul>
-    <button>Start Over Witches</button>
-    <script src="./script.js"></script>
+        </ul>
+        <button>Start Over Witches</button>
+        <script src="./script.js"></script>
+    </main>
 </body>
 
 </html>

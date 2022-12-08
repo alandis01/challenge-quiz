@@ -1,33 +1,29 @@
-var nextEl = document.querySelector("#next");
-var question = document.getElementById("question");
-var cursor = 0;
-var questions = [
-    "How much wood could a woodchuck chuck?",
-    "Did you have your break today?",
-    "Do you like ice cream?",
-    "What's your favorite pizza topping?"
-];
+var challengeContainer = document.querySelector("#challengeContainer");
+var beginningScreen = document.querySelector("#beginningScreen");
+var startButton = document.querySelector("#startButton");
+var challengeScreen = document.querySelector("#challengeScreen");
+var buttonUl = document.querySelector("#buttonUl");
+var endOfGameScreen = document.querySelector("#endOfGameScreen");
+var score = document.querySelector("#score");
+var initialsInput = document.querySelector("#initialsInput");
+var highScoreScreen = document.querySelector("#highScoreScreen");
+
+
+var timer = function () {
+};
+
 var displayQuestion = function () {
-    question.textContent = questions[cursor]; 
-    advance()
 };
-var advance = function () {
-    if (cursor < questions.length) {
-        cursor++;
-        // displayQuestion();
+
+var 
+
+startButton.addEventListener("click", function() {
+    timer();
+    displayQuestion();
+    var sections = document.querySelectorAll("setion");
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
     }
-    else { 
-        endofgame()
-    }
-};
-// displayQuestion();
-// nextEl.addEventListener("click", advance);
+    challengeScreen.style.display = "block";
+});
 
-var endofgame = function () {
-    question.textContent = "game over";
-};
-
-localStorage.setItem("highscore", JSON.stringify())
-
-// nextEl.addEventListener("click", advance);
-document.getElementById("btn").addEventListener("click", displayQuestion);
