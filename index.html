@@ -2,34 +2,40 @@
 <html lang="en">
 
 <head>
+    <title>Challenge Quiz</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progress</title>
-    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
 
-    </style>
 </head>
 
 <body>
     <header>
-        <h1>Progress</h1>
+        <h1>Custom Challenge Quiz</h1>
     </header>
-    <section class="question" data-index ="0">
-        <h2> id="How much wood could a woodchuck chuck?" </h2>
+    <section id="beginningScreen">
+        <h2>Custom Challenge Quiz</h2>
+        <button>Let Us Begin</button>
     </section>
-    <section data-index ="1">
-        <h2> id="How much wood could a woodchuck chuck?" </h2>
+    <section id="challengeScreen"></section>
+    <h2>What is the square root of 64?</h2>
+    <ul>
+        <button>a. 32 </button>
+        <button>b. 16</button>
+        <button>c. 64</button>
+        <button>d. 8</button>
+    </ul>
+    <section id="endOfGameScreen">
+        <h2>Finally Finished!</h2>
+        <p>Your Score is: <span id="score">100</span></p>
+        <input id="initials" placeholder="Enter Initials" />
+        <button>Send it Off!</button>
     </section>
-    <section data-index ="2">
-        <h2> id="How much wood could a woodchuck chuck?" </h2>
-    </section>
-    <section data-index ="3">
-        <h2> id="How much wood could a woodchuck chuck?" </h2>
-    </section>
+    <section id="highScoreScreen"></section>
     <!-- change the questions -->
     <!-- make sure to change back to parent js folder  -->
-    <script src="./demoscript.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
