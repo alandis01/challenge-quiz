@@ -8,7 +8,7 @@ var score = document.querySelector("#score");
 var initialsInput = document.querySelector("#initialsInput");
 var highScoreScreen = document.querySelector("#highScoreScreen");
 
-
+      
 var timer = function () {
 };
 
@@ -16,6 +16,7 @@ var displayQuestion = function () {
 };
 
 var 
+egsgdg
 
 startButton.addEventListener("click", function() {
     timer();
