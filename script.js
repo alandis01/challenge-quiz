@@ -61,10 +61,16 @@ var displayQuestion = function () {
 displayQuestion();
 
 function advance() {
-    currentQuestion++;
-    displayQuestion()
+    if (currentQuestion < questions.length -1){
+        currentQuestion++;
+        displayQuestion()
+    } else endGame()
 };
 
+function endGame () {
+    questionContainer.classList.add("hide")
+    endOfGameScreen.classList.remove("hide")
+}
 // start.addEventListener('click', function() {
 // timer();
 // displayQuestion();
