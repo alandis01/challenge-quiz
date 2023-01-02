@@ -74,7 +74,10 @@ function advance(e) {
         score += 20;
         scoreElement.textContent = `Score: ${score}`
     }
-    else timeLeft -= 10;
+    else {
+        timeLeft -= 10;
+        if (timeLeft<=0) endGame()
+    }
     console.log(score)
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
@@ -101,10 +104,15 @@ function timer() {
     }, 1000);
 };
 
-
-
-
-
-
-
-
+document.getElementById('scoreInput').addEventListener('submit', ()=>{
+    // putting in local storage
+    const initials = document.getElementById('initials').value
+    const allScoresArray = JSON.parse(localStorage.getItem('allScoresArray'))
+    if (!allScoresArray) {
+        const newArray = [ {initials, score}]
+        localStorage.setItem('allScoresArray', JSON.stringify(newArray))
+    } else {
+        allScoresArray.push({initials, score})
+        localStorage.setItem('allScoresArray', JSON.stringify (allScoresArray))
+    }
+})
