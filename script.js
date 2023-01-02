@@ -3,17 +3,24 @@ var start = document.querySelector("#start");
 var questionContainer = document.getElementById("questionContainer");
 var currentQuestion = 0;
 var endOfGameScreen = document.querySelector("#endOfGameScreen");
-var score = document.querySelector("#score");
+var scoreElement = document.querySelector("#score");
 var initialsInput = document.querySelector("#initials");
 var highScoreScreen = document.querySelector("#highScoreScreen");
 var timeLeft = 75
 var timerInput = document.querySelector("#timer");
 
+var score = 0;
+
 start.addEventListener('click', function () {
     questionContainer.classList.remove("hide")
     startScreen.classList.add("hide")
     displayQuestion();
+    timerInput.classList.remove("hide")
+    timerInput.textContent = "Time Left " + timeLeft + "s";
+    timer();
+    scoreElement.classList.remove("hide")
 })
+
 
 var questions = [
     {
@@ -43,15 +50,14 @@ var questions = [
     }]
 
 function displayQuestion() {
-    console.log(currentQuestion)
     questionContainer.innerHTML = ''
 
     const section = document.createElement('section')
     section.innerHTML = `<h2>${questions[currentQuestion].question}</h2>
-    <button class="answer-button" data-choice="0">a. ${questions[currentQuestion].answers.a}</button>
-    <button class="answer-button" data-choice="1">b. ${questions[currentQuestion].answers.b}</button>
-    <button class = "answer-button" data-choice="2">c. ${questions[currentQuestion].answers.c}</button>
-    <button class="answer-button" data-choice="3">d. ${questions[currentQuestion].answers.d}</button>`
+    <button class="answer-button" data-choice="a">a. ${questions[currentQuestion].answers.a}</button>
+    <button class="answer-button" data-choice="b">b. ${questions[currentQuestion].answers.b}</button>
+    <button class = "answer-button" data-choice="c">c. ${questions[currentQuestion].answers.c}</button>
+    <button class="answer-button" data-choice="d">d. ${questions[currentQuestion].answers.d}</button>`
 
     questionContainer.append(section)
 
@@ -63,9 +69,13 @@ function displayQuestion() {
     })
 };
 
-
-
-function advance() {
+function advance(e) {
+    if (e.target.dataset.choice === questions[currentQuestion].correct) {
+        score += 20;
+        scoreElement.textContent = `Score: ${score}`
+    }
+    else timeLeft -= 10;
+    console.log(score)
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
         displayQuestion()
@@ -75,20 +85,18 @@ function advance() {
 function endGame() {
     questionContainer.classList.add("hide")
     endOfGameScreen.classList.remove("hide")
+    timerInput.classList.add("hide")
+    scoreElement.classList.add("hide")
+    document.getElementById("scoreFinal").textContent=score
 }
-// start.addEventListener('click', function() {
-// timer();
-// displayQuestion();
-// });
 
-
-var timer = function () {
+function timer() {
     var timerInterval = setInterval(() => {
         timeLeft--;
         timerInput.textContent = "Time Left " + timeLeft + "s";
-        console.log(timeLeft);
         if (timeLeft <= 0) {
             clearInterval(timerInterval)
+            endGame()
         }
     }, 1000);
 };
