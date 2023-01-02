@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -22,27 +23,58 @@
             <h2>Custom Challenge Quiz</h2>
             <button id=startButton>Let Us Begin</button>
         </section>
-        <section id="challengeScreen"></section>
-        <h2>What is the square root of 64?</h2>
-        <ul id="buttonUl">
-            <button>a. 32 </button>
-            <button>b. 16</button>
-            <button>c. 64</button>
-            <button>d. 8</button>
-        </ul>
-        <section2 id="endOfGameScreen">
+        <section id="question1" class="hide">
+            <h2>What is the square root of 64?</h2>
+            <ul onclick="handleChoice()" id="buttonUl">
+                <button class="choices" value="incorrect">a. 32 </button>
+                <button class="choices" value="incorrect">b. 16</button>
+                <button class="choices" value="incorrect">c. 64</button>
+                <button class="choices" value="correct">d. 8</button>
+            </ul>
+        </section>
+        <section id="question2" class="hide">
+            <h2>Which of the following is a Moonshine Distillery in Gatlinburg, TN?</h2>
+            <ul id="buttonUl">
+                <button> a. Moonshine ++</button>
+                <button> b. Sugarlands</button>
+                <button> c. Living on the hedge</button>
+                <button> d. Find your wild</button>
+            </ul>
+        </section>
+        <section id="question3" class="hide">
+            <h2>Which of the following is a brewery in Charlotte?</h2>
+            <button> a. Red Oak</button>
+            <button> b. Bricktree</button>
+            <button> c. OMB</button>
+            <button> d. Hoptown</button>
+        </section>
+        <section id="question4" class="hide">
+            <h2>What year did Jeep unveil the new JL model versus the previous JK model Wrangler?</h2>
+            <button> a.2017</button>
+            <button> b.2021 </button>
+            <button> c.2006 </button>
+            <button> d.2019 </button>
+        </section>
+        <section id="question5" class="hide">
+            <h2>How many years are there between Avatar 1 and 2?</h2>
+            <button> a.10</button>
+            <button> b.12 </button>
+            <button> c.13 </button>
+            <button> d.11 </button>
+        </section>
+        <section2 id="endOfGameScreen" class="hide">
             <h2>Finally Finished!</h2>
             <p>Your Score is: <span id="score">100</span></p>
             <input id="initials" placeholder="Enter Initials" />
             <button>Send it Off!</button>
-        </section>
-        <section id="highScoreScreen"></section>
-        <h2>High Scores</h2>
-        <ul>
+            </section>
+            <section id="highScoreScreen" class="hide"></section>
+            <h2>High Scores</h2>
+            <ul>
 
-        </ul>
-        <button>Start Over Witches</button>
-        <script src="./script.js"></script>
+            </ul>
+            <button>Start Over Witches</button>
+            <script src="./script.js"></script>
     </main>
 </body>
 
