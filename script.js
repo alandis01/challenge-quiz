@@ -38,38 +38,37 @@ var questions = [
     }]
 
 var displayQuestion = function () {
+    console.log(currentQuestion)
+    questionContainer.innerHTML=''
+
     const section = document.createElement('section')
-    section.innerHTML = `<h2 id="next">What is the square root of 64?</h2>
-    <button data-choice="0">a. 32</button>
-    <button data-choice="1">b. 16</button>
-    <button data-choice="2">c. 64</button>
-    <button data-choice="3">d. 8</button>`
+    section.innerHTML = `<h2>${questions[currentQuestion].question}</h2>
+    <button class="answer-button" data-choice="0">a. ${questions[currentQuestion].answers.a}</button>
+    <button class="answer-button" data-choice="1">b. ${questions[currentQuestion].answers.b}</button>
+    <button class = "answer-button" data-choice="2">c. ${questions[currentQuestion].answers.c}</button>
+    <button class="answer-button" data-choice="3">d. ${questions[currentQuestion].answers.d}</button>`
 
     questionContainer.append(section)
+
+    butttonsCollection = document.getElementsByClassName('answer-button')
+    buttonsArray = Array.from(butttonsCollection)
+
+    buttonsArray.forEach((button) => {
+        button.addEventListener('click', advance)
+    })
 };
 
 displayQuestion();
 
-var advance = function (event) {
-    var element = event.target;
-
-    if (element.matches('.question button')) {
-        if (cursor < questions.length - 1) {
-            var answer = element.dataset.choice === correctAnswers
-            [cursor];
-            cursor++;
-        }
-        // if () - want to say if correctAnswer = true prompt correct else prompt incorrect 
-        displayQuestion();
-    }
+function advance() {
+    currentQuestion++;
+    displayQuestion()
 };
 
 // start.addEventListener('click', function() {
 // timer();
 // displayQuestion();
 // });
-
-document.addEventListener('click', advance);
 
 
 var timer = function () {
