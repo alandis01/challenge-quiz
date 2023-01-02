@@ -1,5 +1,5 @@
-var startScreen = document.querySelectorAll("#startScreen");
-var start = document.querySelectorAll("#start");
+var startScreen = document.querySelector("#startScreen");
+var start = document.querySelector("#start");
 var questionContainer = document.getElementById("questionContainer");
 var currentQuestion = 0;
 var endOfGameScreen = document.querySelector("#endOfGameScreen");
@@ -9,6 +9,11 @@ var highScoreScreen = document.querySelector("#highScoreScreen");
 var timeLeft = 75
 var timerInput = document.querySelector("#timer");
 
+start.addEventListener('click', function () {
+    questionContainer.classList.remove("hide")
+    startScreen.classList.add("hide")
+    displayQuestion();
+})
 
 var questions = [
     {
@@ -37,9 +42,9 @@ var questions = [
         correct: 'c'
     }]
 
-var displayQuestion = function () {
+function displayQuestion() {
     console.log(currentQuestion)
-    questionContainer.innerHTML=''
+    questionContainer.innerHTML = ''
 
     const section = document.createElement('section')
     section.innerHTML = `<h2>${questions[currentQuestion].question}</h2>
@@ -58,16 +63,16 @@ var displayQuestion = function () {
     })
 };
 
-displayQuestion();
+
 
 function advance() {
-    if (currentQuestion < questions.length -1){
+    if (currentQuestion < questions.length - 1) {
         currentQuestion++;
         displayQuestion()
     } else endGame()
 };
 
-function endGame () {
+function endGame() {
     questionContainer.classList.add("hide")
     endOfGameScreen.classList.remove("hide")
 }
