@@ -76,7 +76,7 @@ function advance(e) {
     }
     else {
         timeLeft -= 10;
-        if (timeLeft<=0) endGame()
+        if (timeLeft <= 0) endGame()
     }
     console.log(score)
     if (currentQuestion < questions.length - 1) {
@@ -90,7 +90,8 @@ function endGame() {
     endOfGameScreen.classList.remove("hide")
     timerInput.classList.add("hide")
     scoreElement.classList.add("hide")
-    document.getElementById("scoreFinal").textContent=score
+    document.getElementById("scoreFinal").textContent = score
+    populateTable()
 }
 
 function timer() {
@@ -104,15 +105,36 @@ function timer() {
     }, 1000);
 };
 
-document.getElementById('scoreInput').addEventListener('submit', ()=>{
+document.getElementById('scoreInput').addEventListener('submit', () => {
     // putting in local storage
     const initials = document.getElementById('initials').value
     const allScoresArray = JSON.parse(localStorage.getItem('allScoresArray'))
     if (!allScoresArray) {
-        const newArray = [ {initials, score}]
+        const newArray = [{ initials, score }]
         localStorage.setItem('allScoresArray', JSON.stringify(newArray))
     } else {
-        allScoresArray.push({initials, score})
-        localStorage.setItem('allScoresArray', JSON.stringify (allScoresArray))
+        allScoresArray.push({ initials, score })
+        localStorage.setItem('allScoresArray', JSON.stringify(allScoresArray))
     }
+    populateTable()
 })
+
+function populateTable() {
+    const allScoresArray = JSON.parse(localStorage.getItem('allScoresArray'))
+    console.log(allScoresArray)
+    if (allScoresArray.length) {
+        document.getElementById('tableBody').innerHTML = ''
+        for (let i = 0; i < allScoresArray.length; i++) {
+            const tableRow = document.createElement('tr')
+            const initialsTD = document.createElement('td')
+            initialsTD.textContent = allScoresArray[i].initials
+            const scoreTD = document.createElement('td')
+            scoreTD.textContent = allScoresArray[i].score
+            tableRow.append(initialsTD, scoreTD)
+            document.getElementById('tableBody').append(tableRow)
+            console.log(allScoresArray[i])
+        }
+    }
+}
+
+https://calendly.com/fsf-tutor-team/jude-clark
