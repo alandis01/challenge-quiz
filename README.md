@@ -10,4 +10,6 @@
 I have created a custom quiz displaying different questions for the user to answer correctly or incorrectly. The quiz is timed that timer will subtract from when a question is answered incorrectly. The user is able to store their initials in a High Score local storage. 
 
 ## visuals
-![Custom Challenge Quiz](./images/Custom%20Challenge%20Quiz.png)
+![Custom Challenge Quiz-1](./images/Challenge-Quiz1.png)
+![Custom Challenge Quiz-2](./images/Challenge-Quiz2.png)
+![Custom Challenge Quiz-3](./images/Challenge-Quiz3.png)
