@@ -106,7 +106,6 @@ function timer() {
 };
 
 document.getElementById('scoreInput').addEventListener('submit', () => {
-    // putting in local storage
     const initials = document.getElementById('initials').value
     const allScoresArray = JSON.parse(localStorage.getItem('allScoresArray'))
     if (!allScoresArray) {
